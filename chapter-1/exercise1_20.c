@@ -27,13 +27,22 @@ int detab (char s[], int len, int tabstop)
 	
 	//check for tab in the line
 	for (int i = 0; s[o] != '\0'; ++i) {
-		// if tab is found
+		// logic for keeping track of columns
 		if (colCounter > tabstop)
 			colCounter = 0;
 			
 		colCounter = increment(colCounter, 1);
-			//determine how many columns left till tabstop
+		
+		if (s[i] != '\t')
+			continue;
+			
+		//if tab is found
+		//determine how many columns left till tabstop
+		colTillTabstop = tabstop - colCounter;
+		
 		//make space for the blank characters by shifing the remaining characters
+		
+		
 		//add that many blank characters
 	}
 }
