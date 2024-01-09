@@ -7,7 +7,7 @@
 
 void detab (char string[], int len, int tabstop);
 void shiftArrayItems (char array[], int len, int start, int shift);
-void addChar (char line[], char character, int index);
+void putChar (char line[], char character, int index);
 int increment (int number, int increment);
 int decrement (int number, int decrement);
 int getCurrentLine (char line[], int limit);
@@ -37,7 +37,7 @@ void shiftArrayItems (char a[], int len, int start, int shift)
 }
 
 
-void addChar (char s[], char character, int index)
+void putChar (char s[], char character, int index)
 {
 	s[index] = character;
 }
