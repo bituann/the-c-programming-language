@@ -41,7 +41,7 @@ int detab (char s[], int len, int tabstop)
 		colTillTabstop = tabstop - colCounter;
 		
 		//make space for the blank characters by shifing the remaining characters
-		
+		shiftArrayItems(s, len, i, colTillTabstop);
 		
 		//add that many blank characters
 	}
@@ -51,7 +51,7 @@ int detab (char s[], int len, int tabstop)
 void shiftArrayItems (char a[], int len, int start, int shift)
 {
 	//move characters to ths right by 'shift'
-	for (len; len >=shift, --len)
+	for (len; len > shift, --len)
 		a[len + shift] = a[len];
 }
 
