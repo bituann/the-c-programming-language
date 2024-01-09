@@ -32,7 +32,7 @@ void detab (char s[], int len, int tabstop)
 	colCounter = colTillTabstop = 0;
 	
 	//check for tab in the line
-	for (int i = 0; s[o] != '\0'; ++i) {
+	for (int i = 0; s[i] != '\0'; ++i) {
 		// logic for keeping track of columns
 		if (colCounter > tabstop)
 			colCounter = 0;
