@@ -28,9 +28,16 @@ int detab (char s[], int len, int tabstop)
 		//add that many blank characters
 }
 
+
 void shiftArrayItems (char a[], int len, int start, int shift)
 {
 	//move characters to ths right by 'shift'
 	for (len; len >=shift, --len)
 		a[len + shift] = a[len];
+}
+
+
+void addChar (char s[], char character, int index)
+{
+	s[index] = character;
 }
