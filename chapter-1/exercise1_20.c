@@ -47,3 +47,9 @@ int increment (int num, int increment)
 {
 	return num += increment;
 }
+
+
+int decrement (int num, int decrement)
+{
+	return num -= decrement;
+}
