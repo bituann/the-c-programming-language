@@ -25,7 +25,7 @@ int main ()
 }
 
 
-int detab (char s[], int len, int tabstop)
+void detab (char s[], int len, int tabstop)
 {
 	//Variables
 	int colCounter, colTillTabstop;
