@@ -15,7 +15,13 @@ int getCurrentLine (char line[], int limit);
 
 int main ()
 {
+	int len;
+	char line[MAXLINE];
 	
+	while ((len = getCurrentLine(line, MAXLINE)) > 0) {
+		detab(line, len, TABSTOP);
+		printf("%s", line);
+	}
 }
 
 
