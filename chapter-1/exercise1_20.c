@@ -7,7 +7,9 @@
 
 void detab (char string[], int len, int tabstop);
 void shiftArrayItems (char array[], int len, int start, int shift);
-void addChar (char line[], )
+void addChar (char line[], char character, int index);
+int increment (int number, int increment);
+int decrement (int number, int decrement);
 int getCurrentLine (char line[], int limit);
 
 
@@ -24,4 +26,11 @@ int detab (char s[], int len, int tabstop)
 		//determine how many columns left till tabstop
 		//make space for the blank characters by shifing the remaining characters
 		//add that many blank characters
+}
+
+void shiftArrayItems (char a[], int len, int start, int shift)
+{
+	//move characters to ths right by 'shift'
+	for (len; len >=shift, --len)
+		a[len + shift] = a[len];
 }
