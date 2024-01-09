@@ -34,7 +34,7 @@ void detab (char s[], int len, int tabstop)
 	//check for tab in the line
 	for (int i = 0; s[i] != '\0'; ++i) {
 		// logic for keeping track of columns
-		if (colCounter > tabstop)
+		if (colCounter >= tabstop)
 			colCounter = 0;
 			
 		colCounter = increment(colCounter, 1);
@@ -50,8 +50,11 @@ void detab (char s[], int len, int tabstop)
 		shiftArrayItems(s, len, i, colTillTabstop);
 		
 		//add that many blank characters
-		for (int j = 0; j < colTillTabstop; ++j)
+		for (int j = 0; j <= colTillTabstop; ++j)
 			putChar(s, 'a', i + j);
+		
+		colCounter = increment(colCounter, colTillTabstop);
+		i = increment(i, colTillTabstop);
 	}
 }
 
