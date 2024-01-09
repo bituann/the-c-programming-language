@@ -41,3 +41,9 @@ void putChar (char s[], char character, int index)
 {
 	s[index] = character;
 }
+
+
+int increment (int num, int increment)
+{
+	return num += increment;
+}
