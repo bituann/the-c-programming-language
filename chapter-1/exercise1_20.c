@@ -53,3 +53,20 @@ int decrement (int num, int decrement)
 {
 	return num -= decrement;
 }
+
+int getCurrentLine (char a[], int limit)
+{
+	int i, c;
+	
+	for (i = 0; i < limit - 1 && (c = getchar()) != '\n' && c != '}'; ++i)
+		a[i] = c;
+		
+	if (c == '\n') {
+		a[i] = c;
+		++i;
+	}
+	
+	a[i] = '\0';
+	
+	return i;
+}
