@@ -53,7 +53,7 @@ int detab (char s[], int len, int tabstop)
 void shiftArrayItems (char a[], int len, int start, int shift)
 {
 	//move characters to ths right by 'shift'
-	for (len; len > shift, --len)
+	for (len; len > start, --len)
 		a[len + shift] = a[len];
 }
 
