@@ -21,11 +21,21 @@ int main ()
 
 int detab (char s[], int len, int tabstop)
 {
+	//Variables
+	int colCounter, colTillTabstop;
+	colCounter = colTillTabstop = 0;
+	
 	//check for tab in the line
-	// if tab is found
-		//determine how many columns left till tabstop
+	for (int i = 0; s[o] != '\0'; ++i) {
+		// if tab is found
+		if (colCounter > tabstop)
+			colCounter = 0;
+			
+		colCounter = increment(colCounter, 1);
+			//determine how many columns left till tabstop
 		//make space for the blank characters by shifing the remaining characters
 		//add that many blank characters
+	}
 }
 
 
