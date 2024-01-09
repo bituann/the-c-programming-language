@@ -44,6 +44,8 @@ int detab (char s[], int len, int tabstop)
 		shiftArrayItems(s, len, i, colTillTabstop);
 		
 		//add that many blank characters
+		for (int j = 0; j < colTillTabstop; ++j)
+			putChar(s, 'a', i + j);
 	}
 }
 
