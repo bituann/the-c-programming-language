@@ -32,16 +32,19 @@ void entab (char s[], int len, int tabstop)
 		if (colCounter >= 8)
 			colCounter = 0;
 			
-		++colCounter;
 		
-		if (s[i] != ' ')
-			continue;	
+		if (s[i] != ' ') {
+			colCounter = increment(colCounter, 1);
+			continue;
+		}
 			
 		//if space is encountered, count how many consequtive blanks exists
 		blankCounter = countBlanks(s, i);
 		
-		if (blankCounter == 1)
+		if (blankCounter == 1) {
+			colCounter = increment(colCounter, 1);
 			continue;
+		}
 			
 		//if blanks > 1
 		//determine how many spaces left till tabstop
@@ -53,14 +56,21 @@ void entab (char s[], int len, int tabstop)
 			i = increment(i, 1);
 			colCounter = 0;
 			colTillTabstop = tabstop - colCounter;
-			blankCounter = decrement(blankCounter, colCounter + 1);
+			blankCounter = decrement(blankCounter, colCounter);
 		}
-		
 		
 		//if it's > blanks, add spaces
-		//remove extra spacs in string
-		//increment i, colCounter as necessary
+		while (blankCounter) {
+			putChar(' ', s, i);
+			i = increment(i, 1);
+			blankCounter = decrement(blankCounter, 1);
+			if (colCounter >= 8)
+				colCounter = 0;
+			colCounter = increment(colCounter, 1);
 		}
+		
+		//remove extra spaces in string
+		//increment i, colCounter as necessary
 	}
 }
 
