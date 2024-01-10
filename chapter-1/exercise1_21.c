@@ -16,7 +16,13 @@ int getCurrentLine (char array[], int limit);
 
 int main ()
 {
+	int len;
+	char line[MAXLINE];
 	
+	while((len = getCurrentLine(line, MAXLINE)) > 0) {
+		entab(line, len, TABSTOP);
+		printf("%s", line);
+	}
 }
 
 
