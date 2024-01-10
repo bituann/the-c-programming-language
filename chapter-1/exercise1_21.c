@@ -58,3 +58,8 @@ void removeArrayItem (char a[], int index)
 	
 	a[index] = a[index + 1];
 }
+
+int increment (int num, int increment)
+{
+	return num += increment;
+}
