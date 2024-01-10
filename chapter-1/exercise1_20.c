@@ -54,6 +54,7 @@ void detab (char s[], int len, int tabstop)
 			putChar(s, 'a', i + j);
 		
 		colCounter = increment(colCounter, colTillTabstop);
+		len = increment(len, colTillTabstop);
 		i = increment(i, colTillTabstop);
 	}
 }
