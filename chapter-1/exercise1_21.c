@@ -33,13 +33,25 @@ void entab (char s[], int len, int tabstop)
 			colCounter = 0;
 			
 		++colCounter;
-	//if space is encountered, count how many consequtive blanks exists
-	//if blanks > 1
-	//determine how many spaces left till tabstop
-	//if it's > blanks, add spaces
-	//if it's <= blanks, add tabs until it's > blank
-	//remove extra spacs in string
-	//increment i, colCounter as necessary
+		
+		if (s[i] != ' ')
+			continue;	
+			
+		//if space is encountered, count how many consequtive blanks exists
+		blankCounter = countBlanks(s, i);
+		
+		if (blankCounter == 1)
+			continue;
+			
+		//if blanks > 1
+		//determine how many spaces left till tabstop
+		colTillTabstop = tabstop - colCounter;
+		
+		//if it's > blanks, add spaces
+		//if it's <= blanks, add tabs until it's > blank
+		//remove extra spacs in string
+		//increment i, colCounter as necessary
+		}
 	}
 }
 
