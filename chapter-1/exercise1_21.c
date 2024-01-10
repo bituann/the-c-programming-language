@@ -32,6 +32,7 @@ void entab (char s[], int len, int tabstop)
 	//increment i, colCounter as necessary
 }
 
+
 int countBlanks (char s[], int start)
 {
 	int count = 0;
@@ -42,3 +43,8 @@ int countBlanks (char s[], int start)
 	return count;
 }
 
+
+void putChar(char character, char s[], int index)
+{
+	s[index] = character;
+}
