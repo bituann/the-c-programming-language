@@ -48,3 +48,13 @@ void putChar(char character, char s[], int index)
 {
 	s[index] = character;
 }
+
+void removeArrayItem (char a[], int index)
+{
+	while (a[index]) {
+		a[index] = a[index + 1];
+		++index;
+	}
+	
+	a[index] = a[index + 1];
+}
