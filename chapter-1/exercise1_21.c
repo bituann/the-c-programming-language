@@ -31,3 +31,13 @@ void entab (char s[], int len, int tabstop)
 	//remove extra spacs in string
 	//increment i, colCounter as necessary
 }
+
+void countBlanks (char s[], int start)
+{
+	int count = 0;
+	
+	for (int start; s[start] == ' '; start++)
+		++count;
+		
+	return count;
+}
