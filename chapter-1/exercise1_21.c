@@ -70,7 +70,8 @@ void entab (char s[], int len, int tabstop)
 		}
 		
 		//remove extra spaces in string
-		//increment i, colCounter as necessary
+		for (int j = i; s[j] == ' '; ++j)
+			removeArrayItem(s, j);
 	}
 }
 
