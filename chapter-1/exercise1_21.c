@@ -5,7 +5,7 @@
 #define TABSTOP 8
 
 
-void entab (char string[], int length, int tabstop);
+void entab (char string[], int tabstop);
 int countBlanks (char line[], int start);
 void putChar (char character, char string[], int index);
 void removeArrayItem (char array[], int index);
@@ -16,17 +16,16 @@ int getCurrentLine (char array[], int limit);
 
 int main ()
 {
-	int len;
 	char line[MAXLINE];
 	
-	while((len = getCurrentLine(line, MAXLINE)) > 0) {
-		entab(line, len, TABSTOP);
+	while(getCurrentLine(line, MAXLINE) > 0) {
+		entab(line, TABSTOP);
 		printf("%s", line);
 	}
 }
 
 
-void entab (char s[], int len, int tabstop)
+void entab (char s[], int tabstop)
 {
 	//Variables
 	int colCounter, colTillTabstop, blankCounter;
@@ -76,8 +75,11 @@ void entab (char s[], int len, int tabstop)
 		}
 		
 		//remove extra spaces in string
-		for (int j = i; s[j] == ' '; ++j)
-			removeArrayItem(s, j);
+		while (s[i] == ' ')
+			removeArrayItem(s, i);
+		
+		//To offset the increase of i when the loop progresses to the next iteration
+		i = decrement(i, 1);
 	}
 }
 
