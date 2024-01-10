@@ -100,10 +100,12 @@ void putChar (char character, char s[], int index)
 
 void removeArrayItem (char a[], int index)
 {
-	for (int i = index; a[i]; ++i)
+	int i = index;
+	
+	for (i = index; a[i]; ++i)
 		a[i] = a[i + 1];
 	
-	a[index] = a[index + 1];
+	a[i] = a[i + 1];
 }
 
 
