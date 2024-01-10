@@ -21,6 +21,7 @@ int main ()
 	
 	while((len = getCurrentLine(line, MAXLINE)) > 0) {
 		entab(line, len, TABSTOP);
+		printf("here\n");
 		printf("%s", line);
 	}
 }
@@ -86,7 +87,7 @@ int countBlanks (char s[], int start)
 {
 	int count = 0;
 	
-	for (int start; s[start] == ' '; ++start)
+	for (int i = start; s[i] == ' '; ++i)
 		++count;
 		
 	return count;
