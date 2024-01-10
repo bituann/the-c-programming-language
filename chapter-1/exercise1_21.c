@@ -47,8 +47,17 @@ void entab (char s[], int len, int tabstop)
 		//determine how many spaces left till tabstop
 		colTillTabstop = tabstop - colCounter;
 		
+		//if it's <= blanks, add tabs until it is > blank
+		while (collTillTabstop <= blankCounter){
+			putChar('\t', s, i);
+			i = increment(i, 1);
+			colCounter = 0;
+			colTillTabstop = tabstop - colCounter;
+			blankCounter = decrement(blankCounter, colCounter + 1);
+		}
+		
+		
 		//if it's > blanks, add spaces
-		//if it's <= blanks, add tabs until it's > blank
 		//remove extra spacs in string
 		//increment i, colCounter as necessary
 		}
