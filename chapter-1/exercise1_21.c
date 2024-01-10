@@ -21,7 +21,6 @@ int main ()
 	
 	while((len = getCurrentLine(line, MAXLINE)) > 0) {
 		entab(line, len, TABSTOP);
-		printf("here\n");
 		printf("%s", line);
 	}
 }
@@ -59,16 +58,16 @@ void entab (char s[], int len, int tabstop)
 		
 		//if it's <= blanks, add tabs until it is > blank
 		while (colTillTabstop <= blankCounter){
-			putChar('\t', s, i);
+			putChar('a', s, i);
 			i = increment(i, 1);
 			colCounter = 0;
+			blankCounter = decrement(blankCounter, colTillTabstop);
 			colTillTabstop = tabstop - colCounter;
-			blankCounter = decrement(blankCounter, colCounter);
 		}
 		
 		//if it's > blanks, add spaces
 		while (blankCounter) {
-			putChar(' ', s, i);
+			putChar('b', s, i);
 			i = increment(i, 1);
 			blankCounter = decrement(blankCounter, 1);
 			if (colCounter >= 8)
