@@ -22,14 +22,25 @@ int main ()
 
 void entab (char s[], int len, int tabstop)
 {
+	//Variables
+	int colCounter, colTillTabstop, blankCounter;
+	colCounter = colTillTabstop = blankCounter = 0;
+	
 	//search through line
-	//if space is encountered, count how many cosequtive blanks exists
+	for (int i = 0; s[i]; ++i) {
+		//column counter logic
+		if (colCounter >= 8)
+			colCounter = 0;
+			
+		++colCounter;
+	//if space is encountered, count how many consequtive blanks exists
 	//if blanks > 1
 	//determine how many spaces left till tabstop
 	//if it's > blanks, add spaces
 	//if it's <= blanks, add tabs until it's > blank
 	//remove extra spacs in string
 	//increment i, colCounter as necessary
+	}
 }
 
 
