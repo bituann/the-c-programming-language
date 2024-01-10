@@ -44,7 +44,7 @@ int countBlanks (char s[], int start)
 }
 
 
-void putChar(char character, char s[], int index)
+void putChar (char character, char s[], int index)
 {
 	s[index] = character;
 }
@@ -59,7 +59,14 @@ void removeArrayItem (char a[], int index)
 	a[index] = a[index + 1];
 }
 
+
 int increment (int num, int increment)
 {
 	return num += increment;
+}
+
+
+int decrement (int num, int decrement)
+{
+	return num -= decrement;
 }
