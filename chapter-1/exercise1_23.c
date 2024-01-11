@@ -21,8 +21,18 @@ int main ()
 
 void removeComments (char s[])
 {
+	//Variables
+	int commCount, strCount;
+	commCount = strCount = 0;
+	
 	//check through text
-	//if char is ", count total string elements, then skip to that index
+	for (int i = 0; s[i]; ++i) {
+		//if char is ", count total string elements, then skip to that index
+		if (s[i] == '"' || s[i] == '\'') {
+			strCount = countStringChar(s, i + 1);
+			i = increment(i, strCount);
+			continue;
+		}
 	//if char is /
 		//and next char is /
 		//count up to \n and remove those characters
@@ -30,4 +40,5 @@ void removeComments (char s[])
 		//and next char is *
 		//count up to / with * as prev char
 		//remove those characters
+	}
 }
