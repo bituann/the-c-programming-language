@@ -57,7 +57,7 @@ void entab (char s[], int tabstop)
 		
 		//if it's <= blanks, add tabs until it is > blank
 		while (colTillTabstop <= blankCounter){
-			putChar(' ', s, i);
+			putChar('\t', s, i);
 			i = increment(i, 1);
 			colCounter = 0;
 			blankCounter = decrement(blankCounter, colTillTabstop);
