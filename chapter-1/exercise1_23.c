@@ -55,12 +55,25 @@ void removeComments (char s[])
 void countCommentChar (char t[], int start)
 {
 	int count;
+	count = 0;
+	
 	if (t[start + 1] == '/') {
 		while (t[start] != '\n') {
 			++count;
 			++start;
 		}
 		if (t[start] == '\n')
+			++count;
+			
+		return count;
+	}
+	
+	if (t[start + 1] == '*') {
+		while (t[start] != '/' && t[start - 1] != '*') {
+			++count;
+			++start;
+		}
+		if (t[start + 1] == '\n')
 			++count;
 			
 		return count;
