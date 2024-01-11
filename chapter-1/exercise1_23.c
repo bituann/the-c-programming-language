@@ -4,7 +4,7 @@
 #define MAXLINE 10000
 
 
-void removeComments (char text[]);
+void removeComments (char text[], int length);
 void countCommentChar (char text[], int start);
 void countStringChar (char text[], int start);
 void shiftArrayItemsLeft (char array[], int pivot, int shift);
@@ -19,7 +19,7 @@ int main ()
 }
 
 
-void removeComments (char s[])
+void removeComments (char s[], int len)
 {
 	//Variables
 	int commCount, strCount;
@@ -44,7 +44,7 @@ void removeComments (char s[])
 		//and next char is *
 		//count up to / with * as prev char
 		//remove those characters
-		shiftArrayItemsLeft(s, i, commCount);
+		shiftArrayItemsLeft(s, len, i, commCount);
 		//to offset the addition done as the iteration changes
 		i = decrement(i, 1);
 		}
@@ -78,4 +78,41 @@ void countCommentChar (char t[], int start)
 			
 		return count;
 	}
+}
+
+
+void shiftArrayItemsLeft (char a[], int len, int start, int shift)
+{
+	for (start; len >= start; ++start)
+		a[start] = a[start + shift];
+}
+
+
+int increment (int num, int increment)
+{
+	return num += increment;
+}
+
+
+int decrement (int num, int decrement)
+{
+	return num -= decrement;
+}
+
+
+int getCurrentLine (char a[], int lim)
+{
+	int i, c;
+	
+	for (i = 0; i < lim - 1 && (c = getchar()) != '\n' && c != '}'; ++i)
+		a[i] = c;
+		
+	if (c == '\n') {
+		a[i] = c;
+		++i;
+	}
+	
+	a[i] = '\0';
+	
+	return i;
 }
