@@ -2,7 +2,7 @@
 
 
 #define MAXLINE 1000
-#define MAXCOL 10
+#define MAXCOL 25
 
 
 void fold (char line[], int len, int maxCol);
@@ -13,7 +13,7 @@ int decrement (int num, int decrement);
 int getCurrentLine (char array[], int limit);
 
 
-int main
+int main ()
 {
 	int len;
 	char line[MAXLINE];
@@ -33,9 +33,10 @@ void fold (char s[], int len, int maxCol)
 	
 	//loop through array
 	for (int i = 0; s[i]; ++i) {
-		//keep track of current col, and index of last non-blank char
+		//keep track of current col
 		colCounter = increment(colCounter, 1);
 		
+		//keep track of index of last non-blank char
 		if ((s[i] != ' ' || s[i] != '\t') && (colCounter % maxCol) != 0)
 			lastNBcharIndex = i;
 			
@@ -45,6 +46,7 @@ void fold (char s[], int len, int maxCol)
 		//when maxcol is reached
 		//shift everything from just after last non-blank char to the right
 		shiftArrayItems(s, len, lastNBcharIndex, 1);
+		len = increment(len, 1);
 	
 		//insert new line char
 		putChar('\n', s, lastNBcharIndex + 1);
