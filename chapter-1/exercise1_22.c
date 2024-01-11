@@ -15,7 +15,13 @@ int getCurrentLine (char array[], int limit);
 
 int main
 {
+	int len;
+	char line[MAXLINE];
 	
+	while ((len = getCurrentLine(line, MAXLINE)) > 0) {
+		fold(line, len, MAXCOL);
+		printf("%s", line);
+	}
 }
 
 
