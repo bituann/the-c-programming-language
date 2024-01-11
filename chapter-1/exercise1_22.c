@@ -5,7 +5,7 @@
 #define MAXCOL 10
 
 
-void fold (char line[], int len);
+void fold (char line[], int len, int maxCol);
 void putChar (char character, char array[], int index);
 void shiftArrayItems (char array[], int length, int start, int shift);
 int increment (int num, int increment);
@@ -19,13 +19,20 @@ int main
 }
 
 
-void fold (char s[], int len)
+void fold (char s[], int len, int maxCol)
 {
+	//Variables
+	int colCounter, lastNBcharIndex;
+	colCounter = 0;
+	
 	//loop through array
+	for (int i = 0; s[i]; ++i) {
+		colCounter = increment(colCounter, 1);
 	//keep track of current col, and index of last non-blank char
 	//when maxcol is reached
 	//shift everything from just after last non-blank char to the right
 	//insert new line char
+	}
 }
 
 
