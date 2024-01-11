@@ -5,9 +5,9 @@
 
 
 void removeComments (char text[], int length);
-void countCommentChar (char text[], int start);
-void countStringChar (char text[], int start);
-void shiftArrayItemsLeft (char array[], int pivot, int shift);
+int countCommentChar (char text[], int start);
+int countStringChar (char text[], int start);
+void shiftArrayItemsLeft (char array[], int len, int pivot, int shift);
 int increment (int num, int increment);
 int decrement (int num, int decrement);
 int getCurrentLine (char array[], int limit);
@@ -52,7 +52,7 @@ void removeComments (char s[], int len)
 }
 
 
-void countCommentChar (char t[], int start)
+int countCommentChar (char t[], int start)
 {
 	int count;
 	count = 0;
@@ -78,6 +78,27 @@ void countCommentChar (char t[], int start)
 			
 		return count;
 	}
+}
+
+
+int countStringChar (char t[], int start)
+{
+	int count = 1;
+	++start;
+	
+	while (t[start] != '"') {
+		if (t[start - 1] == '\\')
+			++count;
+			++start;
+			continue;
+			
+		++count;
+		++start;
+	}
+	
+	++count;
+	
+	return count;
 }
 
 
