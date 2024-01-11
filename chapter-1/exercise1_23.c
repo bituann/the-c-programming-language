@@ -50,3 +50,19 @@ void removeComments (char s[])
 		}
 	}
 }
+
+
+void countCommentChar (char t[], int start)
+{
+	int count;
+	if (t[start + 1] == '/') {
+		while (t[start] != '\n') {
+			++count;
+			++start;
+		}
+		if (t[start] == '\n')
+			++count;
+			
+		return count;
+	}
+}
