@@ -7,7 +7,7 @@
 
 void fold (char line[], int len);
 void putChar (char character, char array[], int index);
-void shiftArrayItems (char array[], int length);
+void shiftArrayItems (char array[], int length, int start, int shift);
 int increment (int num, int increment);
 int decrement (int num, int decrement);
 int getCurrentLine (char array[], int limit);
@@ -32,4 +32,11 @@ void fold (char s[], int len)
 void putChar (char character, char a[], int index)
 {
 	a[index] = character;
+}
+
+
+void shiftArrayItems (char a[], int len, int start, int shift)
+{
+	for (len; len >= start; --len)
+		a[len + shift] = a[len];
 }
