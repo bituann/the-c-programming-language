@@ -27,11 +27,21 @@ void fold (char s[], int len, int maxCol)
 	
 	//loop through array
 	for (int i = 0; s[i]; ++i) {
+		//keep track of current col, and index of last non-blank char
 		colCounter = increment(colCounter, 1);
-	//keep track of current col, and index of last non-blank char
-	//when maxcol is reached
-	//shift everything from just after last non-blank char to the right
-	//insert new line char
+		
+		if ((s[i] != ' ' || s[i] != '\t') && (colCounter % maxCol) != 0)
+			lastNBcharIndex = i;
+			
+		if ((colCounter % maxCol) != 0)
+			continue;
+			
+		//when maxcol is reached
+		//shift everything from just after last non-blank char to the right
+		shiftArrayItems(s, len, lastNBcharIndex, 1);
+	
+		//insert new line char
+		putChar('\n', s, lastNBcharIndex + 1);
 	}
 }
 
@@ -44,7 +54,7 @@ void putChar (char character, char a[], int index)
 
 void shiftArrayItems (char a[], int len, int start, int shift)
 {
-	for (len; len >= start; --len)
+	for (len; len > start; --len)
 		a[len + shift] = a[len];
 }
 
