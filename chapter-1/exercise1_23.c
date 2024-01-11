@@ -31,14 +31,22 @@ void removeComments (char s[])
 		if (s[i] == '"' || s[i] == '\'') {
 			strCount = countStringChar(s, i + 1);
 			i = increment(i, strCount);
+			//to offset the addition done as the iteration changes
+			i = decrement(i, 1);
 			continue;
 		}
-	//if char is /
+		
+		//if char is /
+		if (s[i] == '/' && (s[i + 1] == '/' || s[i +1] == '*')) {
 		//and next char is /
 		//count up to \n and remove those characters
-		
+		commCount = countCommentChar(s, i);
 		//and next char is *
 		//count up to / with * as prev char
 		//remove those characters
+		shiftArrayItemsLeft(s, i, commCount);
+		//to offset the addition done as the iteration changes
+		i = decrement(i, 1);
+		}
 	}
 }
