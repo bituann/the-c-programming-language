@@ -40,3 +40,15 @@ void shiftArrayItems (char a[], int len, int start, int shift)
 	for (len; len >= start; --len)
 		a[len + shift] = a[len];
 }
+
+
+int increment (int num, int increment)
+{
+	return num += increment;
+}
+
+
+int decrement (int num, int decrement)
+{
+	return num -= decrement;
+}
