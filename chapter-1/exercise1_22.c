@@ -27,3 +27,9 @@ void fold (char s[], int len)
 	//shift everything from just after last non-blank char to the right
 	//insert new line char
 }
+
+
+void putChar (char character, char a[], int index)
+{
+	a[index] = character;
+}
