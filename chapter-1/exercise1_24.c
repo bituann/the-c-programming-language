@@ -71,6 +71,10 @@ int checkQuotes (char t[], char quote)
 			continue;
 		}
 			
+		//handle the special case of '"'
+		if (quote == '"' && t[i] == '"' && t[i - 1] == '\'' && t[i + 1] == '\'')
+			continue;
+			
 		//if char is just quote
 		if (t[i] == quote && (t[i - 1] != '\\' || t[i - 2] == '\\')) {
 			//increment counter
@@ -80,7 +84,7 @@ int checkQuotes (char t[], char quote)
 			//loop from there till the next newline char
 			while (t[i] != '\n') {
 				//if just endquote is found
-				if (t[i] == quote && t[i - 1] != '\\') {
+				if (t[i] == quote && (t[i - 1] != '\\' || t[i - 2] == '\\')) {
 					//decrement count
 					count = decrement(count, 1);
 					
