@@ -5,8 +5,7 @@
 
 
 void checkBasicSyntaxErrors (char text[]);
-int checkSingleQuotes (char text[]);
-int checkDoubleQuotes (char text[]);
+int checkQuotes (char text[], char quote);
 int checkCurlyBraces (char text[]);
 int checkParentheses (char text[]);
 int checkBrackets (char text[]);
@@ -31,12 +30,12 @@ void checkBasicSyntaxErrors (char t[])
 	int cS, cD, cC, cP, cB;
 	
 	//check for single quotes
-	cS = checkSingleQuotes(t);
+	cS = checkQuotes(t, '\'');
 	//print message
 	printf("Single Quote: %d unmatched\n", cS);
 	
 	//check for double quotes
-	cD = checkDoubleQuotes(t);
+	cD = checkQuotes(t, '"');
 	//print message
 	printf("Double Quote: %d unmatched\n", cD);
 	
@@ -57,7 +56,7 @@ void checkBasicSyntaxErrors (char t[])
 }
 
 
-int checkSingleQuotes (char t[])
+int checkQuotes (char t[], char quote)
 {
 	//initialize variables
 	int count = 0;
@@ -74,16 +73,16 @@ int checkSingleQuotes (char t[])
 			continue;
 		}
 			
-		//if char is just '
-		if (t[i] == '\'' && t[i - 1] != '\\') {
+		//if char is just quote
+		if (t[i] == quote && t[i - 1] != '\\') {
 			//increment counter
 			count = increment(count, 1);
 			i = increment(i, 1);
 			
 			//loop from there till the next newline char
 			while (t[i] != '\n') {
-				//if just ' is found
-				if (t[i] == '\'' && t[i - 1] != '\\') {
+				//if just endquote is found
+				if (t[i] == quote && t[i - 1] != '\\') {
 					//decrement count
 					count = decrement(count, 1);
 					
@@ -92,52 +91,6 @@ int checkSingleQuotes (char t[])
 					//break
 					break;
 				}
-				i = increment(i, 1);
-			}
-		}
-	}
-					
-	//return count
-	return count;
-}
-
-
-int checkDoubleQuotes (char t[])
-{
-	//initialize variables
-	int count = 0;
-	
-	//initialize loop to go over array
-	for (int i = 0; t[i] != '\0'; ++i) {
-		//if char is / and next char is / or *
-		if (t[i] == '/' && (t[i + 1] == '/' || t[i +1] == '*')) {
-			//count comment
-			//increment loop counter by that number
-			i = increment(i, countCommentChars(t, i) - 1);
-			
-			//move to the next iteration
-			continue;
-		}
-			
-		//if char is just "
-		if (t[i] == '"' && t[i - 1] != '\\') {
-			//increment counter
-			count = increment(count, 1);
-			i = increment(i, 1);
-			
-			//loop from there till the next newline char
-			while (t[i] != '\n') {
-				//if just " is found
-				if (t[i] == '"' && t[i - 1] != '\\') {
-					//decrement count
-					count = decrement(count, 1);
-					
-					i = increment(i, 1);
-					
-					//break
-					break;
-				}
-				
 				i = increment(i, 1);
 			}
 		}
