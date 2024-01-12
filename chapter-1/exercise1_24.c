@@ -25,16 +25,32 @@ int main ()
 void checkBasicSyntaxErrors (char t[])
 {
 	//initialize variables
+	int count = 0;
+	
 	//check for single quotes
+	count = checkSingleQuotes(t);
 	//print message
+	printf("Single Quote: %d unmatched", count);
+	
 	//check for double quotes
+	count = checkDoubleQuotes(t);
 	//print message
+	printf("Double Quote: %d unmatched", count);
+	
 	//check for curly braces
+	count = checkCurlyBraces(t);
 	//print message
+	printf("Curly Braces: %d unmatched", count);
+	
 	//check for parentheses
+	count = checkParentheses(t);
 	//print message
+	printf("Parentheses: %d unmatched", count);
+	
 	//check for bracket
+	count = checkBrackets(t);
 	//print message
+	printf("Brackets: %d unmatched", count);
 }
 
 
