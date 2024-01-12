@@ -18,7 +18,10 @@ int getCurrentLine (char array[], int limit);
 
 int main ()
 {
+	char line[MAXLINE];
 	
+	while ((getCurrentLine(line, MAXLINE)) > 0)
+		checkBasicSyntaxErrors(line);
 }
 
 
