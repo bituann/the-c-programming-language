@@ -41,21 +41,43 @@ void checkBasicSyntaxErrors (char t[])
 int checkSingleQuotes (char t[])
 {
 	//initialize variables
+	int count = 0;
 	
 	//initialize loop to go over array
+	for (int i = 0; t[i] != '\0'; ++i) {
 		//if char is / and next char is / or *
+		if (t[i] == '/' && (t[i + 1] == '/' || t[i +1] == '*')) {
 			//count comment
 			//increment loop counter by that number
+			i = increment(i, countCommentChars(t, i) - 1);
+			
 			//move to the next iteration
+			continue;
+		}
 			
 		//if char is just '
+		if (t[i] == '\'' && t[i - 1] != '\\') {
 			//increment counter
+			count = increment(count, 1);
+			
 			//loop from there till the next newline char
+			while (t[i] != '\n')
 				//if just ' is found
+				if (t[i] == '\'' && t[i - 1] != '\\') {
 					//decrement count
+					count = decrement(count, 1);
+					
+					i = increment(i, 1);
+					
 					//break
+					break;
+				}
+				i = increment(i, 1);
+		}
+	}
 					
 	//return count
+	return count;
 }
 
 
