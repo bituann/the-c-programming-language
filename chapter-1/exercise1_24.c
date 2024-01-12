@@ -38,6 +38,27 @@ void checkBasicSyntaxErrors (char t[])
 }
 
 
+int checkSingleQuotes (char t[])
+{
+	//initialize variables
+	
+	//initialize loop to go over array
+		//if char is / and next char is / or *
+			//count comment
+			//increment loop counter by that number
+			//move to the next iteration
+			
+		//if char is just '
+			//increment counter
+			//loop from there till the next newline char
+				//if just ' is found
+					//decrement count
+					//break
+					
+	//return count
+}
+
+
 int countCommentChars (char t[], int start)
 {
 	//initialize count variable
