@@ -124,6 +124,19 @@ int checkDoubleQuotes (char t[])
 }
 
 
+int countCurlyBraces (char t[])
+{
+	//initialize variables
+	//initialize loop to go through array
+		//if char is just {
+			//increment count
+		//if char is just }
+			//decrement count
+			
+	//return count
+}
+
+
 int countCommentChars (char t[], int start)
 {
 	//initialize count variable
