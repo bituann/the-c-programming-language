@@ -72,7 +72,7 @@ int checkQuotes (char t[], char quote)
 		}
 			
 		//if char is just quote
-		if (t[i] == quote && t[i - 1] != '\\') {
+		if (t[i] == quote && (t[i - 1] != '\\' || t[i - 2] == '\\')) {
 			//increment counter
 			count = increment(count, 1);
 			i = increment(i, 1);
@@ -117,12 +117,12 @@ int checkSectionizers (char t[], char open, char close)
 		}
 		
 		//if char is just open
-		if (t[i] == open && t[i - 1] != '\\')
+		if (t[i] == open && (t[i - 1] != '\\' || t[i - 2] == '\\'))
 			//increment count
 			count = increment(count, 1);
 			
 		//if char is just end
-		if (t[i] == close && t[i - 1] != '\\')
+		if (t[i] == close && (t[i - 1] != '\\' || t[i - 2] == '\\'))
 			//decrement count
 			count = decrement(count, 1);
 	}
