@@ -6,9 +6,7 @@
 
 void checkBasicSyntaxErrors (char text[]);
 int checkQuotes (char text[], char quote);
-int checkCurlyBraces (char text[]);
-int checkParentheses (char text[]);
-int checkBrackets (char text[]);
+int checkSectionizers (char text[], char open, char close);
 int countCommentChars (char text[], int start);
 int increment (int num, int increment);
 int decrement (int num, int decrement);
@@ -40,17 +38,17 @@ void checkBasicSyntaxErrors (char t[])
 	printf("Double Quote: %d unmatched\n", cD);
 	
 	//check for curly braces
-	cC = checkCurlyBraces(t);
+	cC = checkSectionizers(t, '{', '}');
 	//print message
 	printf("Curly Braces: %d unmatched\n", cC);
 	
 	//check for parentheses
-	cP = checkParentheses(t);
+	cP = checkSectionizers(t, '(', ')');
 	//print message
 	printf("Parentheses: %d unmatched\n", cP);
 	
 	//check for bracket
-	cB = checkBrackets(t);
+	cB = checkSectionizers(t, '[', ']');
 	//print message
 	printf("Brackets: %d unmatched\n", cB);
 }
@@ -101,7 +99,7 @@ int checkQuotes (char t[], char quote)
 }
 
 
-int checkCurlyBraces (char t[])
+int checkSectionizers (char t[], char open, char close)
 {
 	//initialize variables
 	int count = 0;
@@ -118,79 +116,13 @@ int checkCurlyBraces (char t[])
 			continue;
 		}
 		
-		//if char is just {
-		if (t[i] == '{' && t[i - 1] != '\\')
+		//if char is just open
+		if (t[i] == open && t[i - 1] != '\\')
 			//increment count
 			count = increment(count, 1);
 			
-		//if char is just }
-		if (t[i] == '}' && t[i - 1] != '\\')
-			//decrement count
-			count = decrement(count, 1);
-	}
-			
-	//return count
-	return count;
-}
-
-
-int checkParentheses (char t[])
-{
-	//initialize variables
-	int count = 0;
-	
-	//initialize loop to go through array
-	for (int i = 0; t[i] != '\0'; ++i) {
-		//if char is / and next char is / or *
-		if (t[i] == '/' && (t[i + 1] == '/' || t[i +1] == '*')) {
-			//count comment
-			//increment loop counter by that number
-			i = increment(i, countCommentChars(t, i) - 1);
-			
-			//move to the next iteration
-			continue;
-		}
-		
-		//if char is just (
-		if (t[i] == '(' && t[i - 1] != '\\')
-			//increment count
-			count = increment(count, 1);
-			
-		//if char is just )
-		if (t[i] == ')' && t[i - 1] != '\\')
-			//decrement count
-			count = decrement(count, 1);
-	}
-			
-	//return count
-	return count;
-}
-
-
-int checkBrackets (char t[])
-{
-	//initialize variables
-	int count = 0;
-	
-	//initialize loop to go through array
-	for (int i = 0; t[i] != '\0'; ++i) {
-		//if char is / and next char is / or *
-		if (t[i] == '/' && (t[i + 1] == '/' || t[i +1] == '*')) {
-			//count comment
-			//increment loop counter by that number
-			i = increment(i, countCommentChars(t, i) - 1);
-			
-			//move to the next iteration
-			continue;
-		}
-		
-		//if char is just [
-		if (t[i] == '[' && t[i - 1] != '\\')
-			//increment count
-			count = increment(count, 1);
-			
-		//if char is just ]
-		if (t[i] == ']' && t[i - 1] != '\\')
+		//if char is just end
+		if (t[i] == close && t[i - 1] != '\\')
 			//decrement count
 			count = decrement(count, 1);
 	}
