@@ -33,27 +33,27 @@ void checkBasicSyntaxErrors (char t[])
 	//check for single quotes
 	count = checkSingleQuotes(t);
 	//print message
-	printf("Single Quote: %d unmatched", count);
+	printf("Single Quote: %d unmatched\n", count);
 	
 	//check for double quotes
 	count = checkDoubleQuotes(t);
 	//print message
-	printf("Double Quote: %d unmatched", count);
+	printf("Double Quote: %d unmatched\n", count);
 	
 	//check for curly braces
 	count = checkCurlyBraces(t);
 	//print message
-	printf("Curly Braces: %d unmatched", count);
+	printf("Curly Braces: %d unmatched\n", count);
 	
 	//check for parentheses
 	count = checkParentheses(t);
 	//print message
-	printf("Parentheses: %d unmatched", count);
+	printf("Parentheses: %d unmatched\n", count);
 	
 	//check for bracket
 	count = checkBrackets(t);
 	//print message
-	printf("Brackets: %d unmatched", count);
+	printf("Brackets: %d unmatched\n", count);
 }
 
 
