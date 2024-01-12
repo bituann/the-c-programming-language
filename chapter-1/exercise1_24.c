@@ -78,9 +78,10 @@ int checkSingleQuotes (char t[])
 		if (t[i] == '\'' && t[i - 1] != '\\') {
 			//increment counter
 			count = increment(count, 1);
+			i = increment(i, 1);
 			
 			//loop from there till the next newline char
-			while (t[i] != '\n')
+			while (t[i] != '\n') {
 				//if just ' is found
 				if (t[i] == '\'' && t[i - 1] != '\\') {
 					//decrement count
@@ -92,6 +93,7 @@ int checkSingleQuotes (char t[])
 					break;
 				}
 				i = increment(i, 1);
+			}
 		}
 	}
 					
@@ -121,6 +123,7 @@ int checkDoubleQuotes (char t[])
 		if (t[i] == '"' && t[i - 1] != '\\') {
 			//increment counter
 			count = increment(count, 1);
+			i = increment(i, 1);
 			
 			//loop from there till the next newline char
 			while (t[i] != '\n') {
