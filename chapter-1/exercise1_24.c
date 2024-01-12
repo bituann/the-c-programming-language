@@ -28,13 +28,32 @@ void checkBasicSyntaxErrors (char t[])
 	//check for single quotes
 	//print message
 	//check for double quotes
-	//lrint message
+	//print message
 	//check for curly braces
 	//print message
 	//check for parentheses
 	//print message
 	//check for bracket
 	//print message
+}
+
+
+int countCommentChars (char t[], int start)
+{
+	//initialize count variable
+	
+	//for single line comment
+	//loop from given index till next newline char
+		//update counter
+	//update counter for newline char
+	//return counter
+	
+	//for multi-line comment
+	//loop from given index till end of comment
+	//update counter
+	//update counter for last /
+	//update counter for newline char
+	//return counter
 }
 
 
