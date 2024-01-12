@@ -41,12 +41,18 @@ void checkBasicSyntaxErrors (char t[])
 int countCommentChars (char t[], int start)
 {
 	//initialize count variable
+	int count = 0;
 	
 	//for single line comment
-	//loop from given index till next newline char
-		//update counter
-	//update counter for newline char
-	//return counter
+	if (t[start + 1] == '/') {
+		//loop from given index till next newline char
+		for (start; t[start] != '\n'; ++start)
+			//update counter
+			++count;
+			
+		//return counter
+		return count;
+	}
 	
 	//for multi-line comment
 	//loop from given index till end of comment
