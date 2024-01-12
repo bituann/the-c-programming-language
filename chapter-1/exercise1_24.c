@@ -28,32 +28,32 @@ int main ()
 void checkBasicSyntaxErrors (char t[])
 {
 	//initialize variables
-	int count = 0;
+	int cS, cD, cC, cP, cB;
 	
 	//check for single quotes
-	count = checkSingleQuotes(t);
+	cS = checkSingleQuotes(t);
 	//print message
-	printf("Single Quote: %d unmatched\n", count);
+	printf("Single Quote: %d unmatched\n", cS);
 	
 	//check for double quotes
-	count = checkDoubleQuotes(t);
+	cD = checkDoubleQuotes(t);
 	//print message
-	printf("Double Quote: %d unmatched\n", count);
+	printf("Double Quote: %d unmatched\n", cD);
 	
 	//check for curly braces
-	count = checkCurlyBraces(t);
+	cC = checkCurlyBraces(t);
 	//print message
-	printf("Curly Braces: %d unmatched\n", count);
+	printf("Curly Braces: %d unmatched\n", cC);
 	
 	//check for parentheses
-	count = checkParentheses(t);
+	cP = checkParentheses(t);
 	//print message
-	printf("Parentheses: %d unmatched\n", count);
+	printf("Parentheses: %d unmatched\n", cP);
 	
 	//check for bracket
-	count = checkBrackets(t);
+	cB = checkBrackets(t);
 	//print message
-	printf("Brackets: %d unmatched\n", count);
+	printf("Brackets: %d unmatched\n", cB);
 }
 
 
@@ -201,7 +201,7 @@ int checkParentheses (char t[])
 			count = increment(count, 1);
 			
 		//if char is just )
-		if (t[i] == '(' && t[i - 1] != '\\')
+		if (t[i] == ')' && t[i - 1] != '\\')
 			//decrement count
 			count = decrement(count, 1);
 	}
