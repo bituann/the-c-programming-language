@@ -21,6 +21,7 @@ int main ()
 	
 }
 
+
 void checkBasicSyntaxErrors (char t[])
 {
 	//initialize variables
@@ -34,4 +35,34 @@ void checkBasicSyntaxErrors (char t[])
 	//print message
 	//check for bracket
 	//print message
+}
+
+
+int increment (int num, int increment)
+{
+	return num += increment;
+}
+
+
+int decrement (int num, int decrement)
+{
+	return num -= decrement;
+}
+
+
+int getCurrentLine (char a[], int lim)
+{
+	//initialize variables
+	int i, c;
+	
+	//keep calling getchar() until exit condition is met
+	for (i = 0; i < lim - 1 && (c = getchar()) != '~'; ++i)
+		//add current char to line
+		a[i] = c;
+
+	//add end of line char
+	a[i] = '\0';
+	
+	//return length
+	return i;
 }
