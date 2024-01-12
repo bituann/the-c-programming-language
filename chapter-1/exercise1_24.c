@@ -55,11 +55,18 @@ int countCommentChars (char t[], int start)
 	}
 	
 	//for multi-line comment
-	//loop from given index till end of comment
-	//update counter
-	//update counter for last /
-	//update counter for newline char
-	//return counter
+	if (t[start + 1] == '*') {
+		//loop from given index till end of comment
+		for (start; (!t[start] == '/' && t[start - 1] == '*' && t[start + 1] != '*'); ++start)
+			//update counter
+			++count;
+		
+			//update counter for last /
+			++count;
+	
+			//return counter
+			return count;
+	}
 }
 
 
