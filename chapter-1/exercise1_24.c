@@ -104,7 +104,7 @@ int checkDoubleQuotes (char t[])
 			count = increment(count, 1);
 			
 			//loop from there till the next newline char
-			while (t[i] != '\n')
+			while (t[i] != '\n') {
 				//if just " is found
 				if (t[i] == '"' && t[i - 1] != '\\') {
 					//decrement count
@@ -115,7 +115,9 @@ int checkDoubleQuotes (char t[])
 					//break
 					break;
 				}
+				
 				i = increment(i, 1);
+			}
 		}
 	}
 					
@@ -124,7 +126,7 @@ int checkDoubleQuotes (char t[])
 }
 
 
-int countCurlyBraces (char t[])
+int checkCurlyBraces (char t[])
 {
 	//initialize variables
 	int count = 0;
